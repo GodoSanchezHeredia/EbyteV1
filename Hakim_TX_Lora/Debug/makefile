@@ -60,8 +60,8 @@ all: main-build
 main-build: Hakim_TX_Lora.elf secondary-outputs
 
 # Tool invocations
-Hakim_TX_Lora.elf Hakim_TX_Lora.map: $(OBJS) $(USER_OBJS) C:\Users\DELL\STM32CubeIDE\workspace_1.13.1\Hakim_TX_Lora\STM32F767ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Hakim_TX_Lora.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\DELL\STM32CubeIDE\workspace_1.13.1\Hakim_TX_Lora\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hakim_TX_Lora.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Hakim_TX_Lora.elf Hakim_TX_Lora.map: $(OBJS) $(USER_OBJS) C:\Users\DELL\Documents\GitHub\EbyteV1\Hakim_TX_Lora\STM32F767ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Hakim_TX_Lora.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\DELL\Documents\GitHub\EbyteV1\Hakim_TX_Lora\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Hakim_TX_Lora.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

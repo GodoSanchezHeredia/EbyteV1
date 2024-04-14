@@ -35,7 +35,7 @@ void Lora_Tx(void){
 	}
 	HAL_ADC_Stop(&hadc1);
 
-	sprintf(dato_tx,"%u*",ADCValue);
+	sprintf(dato_tx,"%04u*",ADCValue);
 
 HAL_UART_Transmit(&huart5, dato_tx, strlen(dato_tx),8000);
 

@@ -125,17 +125,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (flag) {
+
+if (flag) {
+	 	 	 	SSD1306_GotoXY(0, 10);
+			    SSD1306_Puts("Lora : ",&Font_11x18,1);
+			    SSD1306_GotoXY(10,40);
+
+			    SSD1306_Puts(buffer_rx,&Font_11x18,1);
+			    SSD1306_UpdateScreen();
+			    memset(buffer_rx,0,i);
+			    i=0;
+			    HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 0);
+			    flag = false;
+}
 
 
-		    SSD1306_GotoXY(0, 10);
-		    SSD1306_Puts("Lora : ",&Font_11x18,1);
-		    SSD1306_GotoXY(10,40);
-		    SSD1306_Puts(buffer_rx,&Font_11x18,1);
-		  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 0);
-		  flag = false;
-
-	}
 
     /* USER CODE END WHILE */
 
@@ -321,8 +325,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
 		case '*':
 			adc = atoi(buffer_rx);
-			memset(buffer_rx,0,i);
-			i=0;
+
+			//i=0;
 			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 1);
 			flag = true;
 			break;
